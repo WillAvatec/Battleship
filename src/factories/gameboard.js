@@ -87,10 +87,10 @@ export default function (boardSize = 10) {
 	// This should set the value on the internal board
 	function receiveAttack(coord) {
 		const [x, y] = coord;
-		let value = '-';
+		let value = '·';
 		if (board[x][y] === 1) {
 			findBoat(coord).hit();
-			value = 'x';
+			value = '☒';
 		}
 
 		board[x][y] = value;
