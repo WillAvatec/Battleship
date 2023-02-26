@@ -56,6 +56,21 @@ h1{
 .player-side, .computer-side {
     background-color: rgb(26, 24, 24);
     padding: 10px;
+    position: relative;
+}
+
+.disable {
+    background-color: rgba(241, 237, 237, 0.7);
+    display: none;
+}
+
+.show {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 520px;
+    height: 520px;
 }
 
 .rows {
