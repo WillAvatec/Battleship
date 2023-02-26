@@ -27,9 +27,9 @@ export default class {
 			column = Math.floor(Math.random() * 10);
 		}
 
-		this.attackTo([row, column], board);
+		const value = this.attackTo([row, column], board);
 
-		return true;
+		return [row, column, value];
 	}
 
 	hasAlreadyHit(row, column) {
