@@ -14,7 +14,7 @@ describe('Testing Player Class', () => {
     player = new Player('Rodrigo');
     expect(player.name).toBe('Rodrigo');
   });
-  it('should have a record of past atttacks', () => {
+  it('should have a record of past attacks', () => {
     expect(player.record).toBeInstanceOf(Array);
   });
 });
@@ -23,7 +23,7 @@ describe('Testing attacks to board', () => {
   it('should attack to a board', () => {
     const coordenadas = [1, 1];
     const board = GameBoard();
-    expect(player.attackTo(coordenadas, board)).toBe(true);
+    expect(player.attackTo(coordenadas, board)).toBe('-');
   });
   it('should register an attack into the record', () => {
     const coordenadas = [1, 1];

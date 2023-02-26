@@ -11,10 +11,10 @@ describe('BattleShip object', () => {
     expect(boat.hit()).toBe(2);
   });
 
-  it('should return undefined if hits is greater than or equal to length', () => {
+  it("shouldn't increment hits if hits is greater or equal to length", () => {
     boat.hit();
     boat.hit();
-    expect(boat.hit()).toBeUndefined();
+    expect(boat.hit()).toBe(2);
   });
 
   test('isSunk method to return false by default', () => {
