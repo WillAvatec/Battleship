@@ -2,7 +2,7 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/controller.js',
   mode: 'development',
   plugins: [new ESLintPlugin()],
   output: {
