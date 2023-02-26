@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import GameBoard from '../gameboard.js';
-import Ship from '../ship.js';
+import GameBoard from '../factories/gameboard.js';
+import Ship from '../factories/ship.js';
 
 let mapa;
 let boat;

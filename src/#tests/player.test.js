@@ -1,5 +1,5 @@
-import GameBoard from '../gameboard.js';
-import Player from '../player.js';
+import GameBoard from '../factories/gameboard.js';
+import Player from '../factories/player.js';
 
 let player;
 beforeEach(() => {

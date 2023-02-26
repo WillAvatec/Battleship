@@ -1,4 +1,4 @@
-import Ship from '../ship.js';
+import Ship from '../factories/ship.js';
 
 describe('BattleShip object', () => {
   let boat;
