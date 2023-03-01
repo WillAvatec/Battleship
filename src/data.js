@@ -2,8 +2,8 @@ import Player from './factories/player.js';
 import gameBoard from './factories/gameboard.js';
 import ship from './factories/ship.js';
 
-export default (function () {
-	const player1 = new Player();
+export default function (userName) {
+	const player1 = new Player(userName);
 	const computer = new Player('computer');
 	const isGameOver = false;
 	const playerBoard = gameBoard();
@@ -18,4 +18,4 @@ export default (function () {
 		enemyBoard,
 		ship3,
 	};
-})();
+}
