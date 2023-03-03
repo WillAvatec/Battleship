@@ -7,7 +7,7 @@ import Icon from '../assets/images/github-logo.svg';
 const body = document.querySelector('body');
 const playerBoard = document.querySelector('#player-board');
 const aiBoard = document.querySelector('#computer-board');
-const cpSide = document.querySelector('.computer-side');
+const computerSide = document.querySelector('.computer-side');
 
 // ---- BOARDS -------X
 
@@ -15,7 +15,7 @@ function createBoards(boardSize, playerRef, PCRef) {
 	board(boardSize, playerRef);
 	board(boardSize, PCRef);
 	const disable = document.createElement('div');
-	cpSide.appendChild(disable);
+	computerSide.appendChild(disable);
 	disable.classList.add('disable');
 }
 
