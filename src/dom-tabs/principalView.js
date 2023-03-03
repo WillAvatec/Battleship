@@ -1,4 +1,4 @@
-import domHelper from './assistance/domHelper.js';
+import {domHelper} from './assistance/domHelper.js';
 import board from './assistance/createBoard.js';
 import '../assets/css/styles.css';
 import Icon from '../assets/images/github-logo.svg';

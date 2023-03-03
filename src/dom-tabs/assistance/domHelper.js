@@ -1,4 +1,4 @@
-export default function (tag, attr, childs) {
+function domHelper(tag, attr, childs) {
 	const element = document.createElement(tag);
 
 	for (const key in attr) {
@@ -15,3 +15,9 @@ export default function (tag, attr, childs) {
 
 	return element;
 }
+
+function clearChildNodes(node) {
+	node.remove();
+}
+
+export {domHelper, clearChildNodes};
