@@ -10,14 +10,26 @@ let gameData;
 let player;
 let computer;
 
-const formHandler = playerName => {
+const showPlacementMenu = () => {
+
+};
+
+const displayNames = ([player, computer]) => {
+	const playerName = document.querySelector('.player-name');
+	const computerName = document.querySelector('.computer-name');
+	playerName.textContent = player.name;
+	computerName.textContent = computer.name;
+};
+
+const gameStarter = playerName => {
 	gameData = setData(playerName);
 	[player, computer] = [gameData.player1, gameData.computer];
+	displayNames([player, computer]);
 };
 
 const initializeGame = () => {
+	startingScreen(gameStarter);
 	gameScreen();
-	startingScreen(formHandler);
 };
 
 initializeGame();
