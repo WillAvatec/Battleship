@@ -1,8 +1,28 @@
-import principalView from './dom-tabs/principalView';
-import Data from './data.js';
-principalView();
+import startingScreen from './dom-tabs/StartingScreen';
+import gameScreen from './dom-tabs/principalView';
+import setData from './data.js';
 
-const enemyBoardCells = document.querySelectorAll('#computer-board .cells');
+// - Define variables before
+// - Create logic
+// - Call the start of the game at the end
+
+let gameData;
+let player;
+let computer;
+
+const formHandler = playerName => {
+	gameData = setData(playerName);
+	[player, computer] = [gameData.player1, gameData.computer];
+};
+
+const initializeGame = () => {
+	gameScreen();
+	startingScreen(formHandler);
+};
+
+initializeGame();
+
+/* Const enemyBoardCells = document.querySelectorAll('#computer-board .cells');
 const disableCover = document.querySelector('.disable');
 
 // Write in cell handler
@@ -56,7 +76,7 @@ function attackEnemyBoard(cells) {
 		}, {once: true});
 	});
 }
-
-attackEnemyBoard(enemyBoardCells);
+ */
+/* AttackEnemyBoard(enemyBoardCells);
 Data.playerBoard.setShip(Data.ship3, [7, 0]);
-Data.enemyBoard.setShip(Data.ship3, [7, 0]);
+Data.enemyBoard.setShip(Data.ship3, [7, 0]); */
