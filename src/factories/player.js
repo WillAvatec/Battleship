@@ -1,6 +1,13 @@
 export default class {
 	constructor(name = 'Player1') {
-		this.name = name;
+		if (name === 'computer') {
+			// Pick one randomly
+			const names = ['Joey', 'Mark', 'Will'];
+			this.name = names[Math.floor(Math.random() * names.length)];
+		} else {
+			this.name = name;
+		}
+
 		this.record = [];
 	}
 
