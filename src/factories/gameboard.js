@@ -99,11 +99,11 @@ export default function (boardSize = 10) {
 	}
 
 	function AreAllSunked() {
-		// Check if the board is full of boats
+		// Check if all boats in board are sunked
 		let counter = 0;
 		if (shipPositions.length > 0) {
 			shipPositions.forEach(obj => {
-				if (obj.ship.isSunk()) {
+				if (obj.ship.isSunk().sunked) {
 					counter += 1;
 				}
 			});
