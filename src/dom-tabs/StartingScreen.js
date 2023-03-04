@@ -1,6 +1,6 @@
 import {domHelper, clearChildNodes} from './assistance/domHelper.js';
 
-const inputName = domHelper('input', {class: 'nameInput', type: 'text', placeholder: 'Please enter your name'}, ['Player 1']);
+const inputName = domHelper('input', {class: 'nameInput', type: 'text', placeholder: 'Please enter your name', autofocus: true}, ['Player 1']);
 const playButton = domHelper('button', {class: 'playBtn'}, ['Start Game']);
 const form = domHelper('form', {}, [inputName, playButton]);
 // Const title = domHelper('h1', {id: 'title'}, ['BattleShip']);
