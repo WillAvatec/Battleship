@@ -1,10 +1,10 @@
 import {domHelper, clearChildNodes} from './assistance/domHelper.js';
+import 'animate.css';
 
-const inputName = domHelper('input', {class: 'nameInput', type: 'text', placeholder: 'Please enter your name', autofocus: true}, ['Player 1']);
+const inputName = domHelper('input', {class: 'nameInput', type: 'text', required: true, placeholder: 'Please enter your name', autofocus: true}, ['Player 1']);
 const playButton = domHelper('button', {class: 'playBtn'}, ['Start Game']);
-const form = domHelper('form', {}, [inputName, playButton]);
-// Const title = domHelper('h1', {id: 'title'}, ['BattleShip']);
-// This is what is going to be presented first
+const welcome = domHelper('p', {id: 'welcome'}, ['Welcome aboard!\n Let!\'s get started, shall we?']);
+const form = domHelper('form', {class: 'animate__animated animate__zoomIn animate__delay'}, [welcome, inputName, playButton]);
 const modalDiv = domHelper('div', {class: 'modal'}, [form]);
 
 // Now here's the eventListener Logic
