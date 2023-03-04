@@ -1,3 +1,7 @@
+:root {
+    --light-main: #e2e8f0;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -101,11 +105,66 @@ h1{
     font-size: 3rem;
 }
 
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    gap: 30px;
+    background-color: var(--light-main);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    min-width: 430px; /* Could be more or less, depending on screen size */
+    max-width: 45vw;
+}
 
+form input {
+    width: 200px;
+    height: 1.6rem;
+    border-radius: 5px;
+    border-style: none;
+    border: 1px solid ;
+    align-self: center;
+    letter-spacing: .08rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    padding: 5px;
+    justify-self: center;
+}
+
+form button {
+    width: 150px;
+    justify-self: center;
+}
 #computer-board .cells:hover:empty {
     z-index: 3;
     background-color: #dcfce7;
     outline: 4px solid #4ade80;
     cursor: pointer;
+}
+
+.player-name, .computer-name {
+    display: inline-block;
+    max-width: 300px;
+    font-size: 2rem;
+    color: black;
+    text-shadow: 0 0 .5px wheat;
+    position: absolute;
+    top: -40px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
