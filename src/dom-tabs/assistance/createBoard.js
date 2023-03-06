@@ -20,10 +20,13 @@ function createCell(columnNumber) {
 }
 
 // This renders a board in the DOM
-export default function renderBoard(size, parent) {
+export default function renderBoard(size, parent, addMarker = true) {
 	for (let i = 0; i < size; i += 1) {
 		const row = createRow(i);
-		row.appendChild(createMarker(i));
+		if (addMarker) {
+			row.appendChild(createMarker(i));
+		}
+
 		for (let j = 0; j < size; j += 1) {
 			const cell = createCell(j);
 			row.appendChild(cell);

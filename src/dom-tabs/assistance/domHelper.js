@@ -16,8 +16,4 @@ function domHelper(tag, attr, childs) {
 	return element;
 }
 
-function clearChildNodes(node) {
-	node.remove();
-}
-
-export {domHelper, clearChildNodes};
+export {domHelper};

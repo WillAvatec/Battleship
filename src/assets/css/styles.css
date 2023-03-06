@@ -1,6 +1,6 @@
 :root {
     --light-main: #e2e8f0;
-    --animate-delay: 0.75s;
+    --animate-duration: 700ms;
 }
 
 * {
@@ -118,7 +118,7 @@ h1{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-form {
+form, .modal-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     grid-template-rows: 5fr 1fr 1fr;
@@ -133,7 +133,6 @@ form {
     max-width: 45vw;
     min-height: 300px;
     max-height: 45vh;
-
 }
 
 form input {
@@ -153,10 +152,9 @@ form input {
 form button {
     width: 150px;
     height: 30px;
-    padding: 10px;
     justify-self: center;
-    text-align: center;
-    vertical-align: middle;
+    padding: 5px 10px;
+    font-size: 1.2rem;
 }
 #computer-board .cells:hover:empty {
     z-index: 3;
@@ -175,4 +173,78 @@ form button {
     top: -40px;
     overflow-x: hidden;
     text-overflow: ellipsis;
+}
+
+.modal-content {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+    justify-items: center;
+    border: 1px solid red;
+    margin: 6% auto; /* 15% from the top and centered */
+    min-width: 430px; /* Could be more or less, depending on screen size */
+    max-width: 70vw;
+    min-height: 300px;
+    max-height: 75vh;
+}
+
+.place-title {
+    grid-area: 1/1/2/3;
+    justify-items: center;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.ships-container {
+    grid-area: 2/2/3/3;
+    display: grid;
+    grid-auto-rows: 40px;
+    grid-auto-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    row-gap: 25px;
+    outline:2px solid black;
+    width: 300px;
+}
+
+.modal-content .cells {
+    height: 40px;
+}
+
+.modal-content .rows {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+
+.ship {
+    display: inline-grid;
+    grid-template-columns: rpeat(auto-fit,40px);
+    margin-left: 40px;
+}
+
+.ship-cells {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 111, 58);
+    position: relative;
+    cursor: pointer;
+}
+
+.ship-cells:not(:last-child){
+    border-right: 1px solid rgb(220, 62, 5);
+}
+
+.ship-selector {
+    display: inline-flex;
+    position: relative;
+    outline: 3px solid black;
+    border-radius: 2px;
+    z-index: 3;
+    width: fit-content;
+}
+
+#playBtn {
+    grid-area: 3/1/4/3;
+    padding: 5px 10px;
+    font-size: 1.2rem;
 }
