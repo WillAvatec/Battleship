@@ -227,7 +227,7 @@ form button {
     height: 40px;
     background-color: rgb(255, 111, 58);
     position: relative;
-    cursor: pointer;
+    pointer-events: none;
 }
 
 .ship-cells:not(:last-child){
@@ -237,10 +237,10 @@ form button {
 .ship-selector {
     display: inline-flex;
     position: relative;
-    outline: 3px solid black;
     border-radius: 2px;
     z-index: 3;
     width: fit-content;
+    cursor: pointer;
 }
 
 #playBtn {
