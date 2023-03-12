@@ -95,6 +95,7 @@ h1{
 }
 
 .cells {
+    position: relative;
     flex: 1;
     height: 50px;
     background-color: #e8e5e5;
@@ -230,7 +231,7 @@ form button {
     pointer-events: none;
 }
 
-.ship-cells:not(:last-child){
+.ship-cells:not(:last-child):not(.ship-on-grid *){
     border-right: 1px solid rgb(220, 62, 5);
 }
 
@@ -241,6 +242,29 @@ form button {
     z-index: 3;
     width: fit-content;
     cursor: pointer;
+}
+
+.selected{
+    outline: 3px solid black;
+}
+
+.ship-on-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+[data-vertical=true] .ship-cells:not(:last-child){
+    border-bottom: 1px solid rgb(220, 62, 5);
+}
+
+[data-vertical=false] {
+    display: inline-flex;
+}
+
+[data-vertical=false] .ship-cells:not(:last-child) {
+    border-right: 1px solid rgb(220, 62, 5);
 }
 
 #playBtn {

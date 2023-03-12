@@ -5,46 +5,84 @@
             - Only render placed ships in playerBoard
 */
 
+import {domHelper} from './domHelper';
+
 /*
     -To accomplish that, is needed:
         * Game Data
-        * A way to get coordinates from DOM gameboard
+        * A way to get coordinates from DOM gameboard ✔️
         * A way to render ships in playerBoard
         * A way to mark the current ship that is going to be set on the gameboard ✔️
 */
 
 /*
     There are two logics for event listeners.
-    One for the boats ✔️
-    One for the DOM board
+    One for the selection of the boats ✔️
+    One for the DOM board 🐥
 */
 
 let currentShip = 0;
+const savedPositions = [];
 
-function markCurrentShip(shipSelector, container) {
+const markCurrentShip = (shipSelector, container) => {
 	if (!shipSelector.dataset.shiporder) {
 		return;
 	}
 
-	currentShip = shipSelector.dataset.shiporder;
-	container.querySelectorAll('.ship-selector').forEach(ship => {
-		ship.style.outline = '';
+	currentShip = Number(shipSelector.dataset.shiporder);
+	container.querySelectorAll('.ship-selector').forEach(selector => {
+		selector.classList.remove('selected');
 	});
-	shipSelector.style.outline = '3px solid black';
-}
+	shipSelector.classList.add('selected');
+};
 
 // If is the player setting then receive coords from dom
 // If is the pc setting then invoke random set boats
-function getCoords() {
+function saveCoords(coords) {
+	console.log(coords);
+	const object = savedPositions.find(obj => obj.ref === currentShip);
+	if (object) {
+		object.coords = coords;
+		console.log(savedPositions);
+		return;
+	}
 
+	savedPositions.push({coords, ref: currentShip});
+	console.log(savedPositions);
 }
 
-function getShip() {
-
+function getShip(ships) {
+	return ships[currentShip];
 }
 
-function setShipsInObject(target, {playerBoard, playerShips}) {
-	playerBoard.setShip(getShip(playerShips), getCoords(target));
+function getCoords(cell) {
+	return [Number(cell.parentNode.dataset.row),
+		Number(cell.dataset.column)];
 }
 
-export {markCurrentShip};
+const setShips = (cell, [playerBoard, playerShips]) => {
+	if (playerBoard.isAvailable(getCoords(cell), getShip(playerShips))) {
+		saveCoords(getCoords(cell));
+	}
+
+	return savedPositions;
+};
+
+const renderShip = (ship, container) => {
+	const gridContainer = domHelper('div', {class: 'ship-on-grid'}, []);
+	gridContainer.dataset.vertical = getShip(ship).isVertical;
+	for (let i = 0; i < getShip(ship).getSize(); i++) {
+		const shipCell = domHelper('div', {class: 'ship-cells'}, []);
+		gridContainer.appendChild(shipCell);
+	}
+
+	container.appendChild(gridContainer);
+};
+
+const putInGameBoard = ([playerBoard, ships]) => {
+	savedPositions.forEach(pos => {
+		playerBoard.setShip(ships[pos.ref], pos.coords);
+	});
+};
+
+export {markCurrentShip, setShips, renderShip, putInGameBoard};
