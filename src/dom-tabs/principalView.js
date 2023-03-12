@@ -71,8 +71,7 @@ const clickCellHandler = data => {
 	// Attack enemy Board
 		const value = player.attackTo(
 			[cell.parentNode.dataset.row,
-				cell.dataset.column,
-				cell],
+				cell.dataset.column],
 			board,
 		);
 
