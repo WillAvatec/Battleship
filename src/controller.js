@@ -1,4 +1,5 @@
 import startingScreen from './dom-tabs/StartingScreen';
+import placementMenu from './dom-tabs/placementMenu';
 import gameScreen from './dom-tabs/principalView';
 import setData from './data.js';
 
@@ -9,10 +10,6 @@ import setData from './data.js';
 let gameData;
 let player;
 let computer;
-
-const showPlacementMenu = () => {
-
-};
 
 const displayNames = ([player, computer]) => {
 	const playerName = document.querySelector('.player-name');
@@ -25,8 +22,8 @@ const gameStarter = playerName => {
 	gameData = setData(playerName);
 	[player, computer] = [gameData.player1, gameData.computer];
 	displayNames([player, computer]);
+	placementMenu(gameData);
 	gameScreen(gameData);
-	gameData.enemyBoard.setShip(gameData.ship3, [7, 0]);
 };
 
 const initializeGame = () => {
