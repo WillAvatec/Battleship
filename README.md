@@ -18,7 +18,7 @@ Know Bugs/Issues:
     are sunked, that keeps checking everytime a hit on any board is done).
   * The pc player don't have a way to set their boats randomly in the gameboard.
 
-Improvements:
+Improvements ToDo:
 - There also should be a way to select difficulties in the starting screen.
 - The player should have a marker that tells them where the ship is going to be set
 - The boats set by the player should be shown in the player's board in the game screen
