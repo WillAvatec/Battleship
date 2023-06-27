@@ -1,6 +1,7 @@
-import startingScreen from './dom-tabs/StartingScreen';
-import gameScreen from './dom-tabs/principalView';
-import setData from './data.js';
+import startingScreen from "./dom-tabs/StartingScreen";
+import gameScreen from "./dom-tabs/principalView";
+import setData from "./data.js";
+import "./assets/css/styles.css";
 
 // - Define variables before
 // - Create logic
@@ -10,27 +11,23 @@ let gameData;
 let player;
 let computer;
 
-const showPlacementMenu = () => {
-
-};
-
 const displayNames = ([player, computer]) => {
-	const playerName = document.querySelector('.player-name');
-	const computerName = document.querySelector('.computer-name');
-	playerName.textContent = player.name;
-	computerName.textContent = computer.name;
+  const playerName = document.querySelector(".player-name");
+  const computerName = document.querySelector(".computer-name");
+  playerName.textContent = player.name;
+  computerName.textContent = computer.name;
 };
 
-const gameStarter = playerName => {
-	gameData = setData(playerName);
-	[player, computer] = [gameData.player1, gameData.computer];
-	displayNames([player, computer]);
-	gameScreen(gameData);
-	gameData.enemyBoard.setShip(gameData.ship3, [7, 0]);
+const gameStarter = (playerName) => {
+  gameData = setData(playerName);
+  [player, computer] = [gameData.player1, gameData.computer];
+  displayNames([player, computer]);
+  gameScreen(gameData);
+  gameData.enemyBoard.setShip(gameData.ship3, [7, 0]);
 };
 
 const initializeGame = () => {
-	startingScreen(gameStarter);
+  startingScreen(gameStarter);
 };
 
 initializeGame();
