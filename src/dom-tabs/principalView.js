@@ -26,7 +26,14 @@ function footer(body) {
     href: "https://github.com/WillAvatec/battleship",
   });
   const img = domHelper("img", { src: Icon }, [a]);
-  const footer = domHelper("footer", {}, [p, img]);
+  const footer = domHelper(
+    "footer",
+    {
+      class:
+        "text-white divide-y-2 py-3 bg-gradient-to-r from-pink-900 to-pink-700",
+    },
+    [p, img]
+  );
   body.appendChild(footer);
 }
 

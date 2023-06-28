@@ -2,9 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --light-main: #e2e8f0;
-  --animate-delay: 0.75s;
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+
+  25% {
+    transform: translateX(-25%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+    height: 16em;
+  }
+
+  75% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(1);
+  }
 }
 
 * {
@@ -13,10 +43,66 @@
   cursor: default;
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -20;
+  height: 100vh;
+  background-image: url("https://w0.peakpx.com/wallpaper/427/48/HD-wallpaper-purple-haze-world-reflects-water-alien.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    315deg,
+    rgb(223 198 222 / 12%) 3%,
+    rgb(149 41 211 / 20%) 38%,
+    rgb(121 48 238 / 20%) 68%,
+    rgb(50 2 59 / 20%) 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.wave {
+  background: rgba(231, 23, 204, 0.25);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 13em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  background: rgba(197, 144, 190, 0.582);
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  background: rgba(130, 7, 155, 0.25);
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
 }
 
 footer {
@@ -25,10 +111,7 @@ footer {
   align-items: center;
   justify-content: center;
   margin-top: auto;
-  padding: 10px 0;
   gap: 20px;
-  border-top: 1px solid black;
-  background-color: #aeaaaa;
 }
 
 footer img:hover {
@@ -65,7 +148,6 @@ h1 {
 
 .player-side,
 .computer-side {
-  background-color: rgb(26, 24, 24);
   padding: 10px;
   position: relative;
 }
@@ -87,10 +169,11 @@ h1 {
 .rows {
   display: flex;
   flex-direction: row;
-  width: 500px;
 }
 
 .marker {
+  position: absolute;
+  left: -8px;
   color: #d9d9d9;
   display: flex;
   justify-content: center;
@@ -102,9 +185,6 @@ h1 {
 
 .cells {
   flex: 1;
-  height: 50px;
-  background-color: #e8e5e5;
-  outline: 0.5px solid rgb(154, 154, 250);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -119,66 +199,21 @@ h1 {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  overflow: hidden; /* Enable scroll if needed */
 }
 
 form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-  grid-template-rows: 5fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   gap: 30px;
-  background-color: var(--light-main);
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 8px;
-  min-width: 430px; /* Could be more or less, depending on screen size */
-  max-width: 45vw;
-  min-height: 300px;
-  max-height: 45vh;
+  min-height: 200px;
 }
 
-form input {
-  width: 200px;
-  height: 1.6rem;
-  border-radius: 5px;
-  border-style: none;
-  border: 1px solid;
-  align-self: center;
-  letter-spacing: 0.08rem;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 500;
-  padding: 5px;
-  justify-self: center;
-}
-
-form button {
-  width: 150px;
-  height: 30px;
-  padding: 10px;
-  justify-self: center;
-  text-align: center;
-  vertical-align: middle;
-}
 #computer-board .cells:hover:empty {
   z-index: 3;
   background-color: #dcfce7;
   outline: 4px solid #4ade80;
   cursor: pointer;
-}
-
-.player-name,
-.computer-name {
-  display: inline-block;
-  max-width: 300px;
-  font-size: 2rem;
-  color: black;
-  text-shadow: 0 0 0.5px wheat;
-  position: absolute;
-  top: -40px;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
 }
