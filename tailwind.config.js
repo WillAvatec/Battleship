@@ -3,6 +3,9 @@
 module.exports = {
   content: ["./src/*.{html,js}", "./src/**/*.js", "./dist/*.{html,js}"],
   theme: {
+    screens: {
+      sm: { max: "400px" },
+    },
     extend: {
       animation: {
         "fade-in": "fadeIn .5s ease-out",
