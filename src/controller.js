@@ -22,8 +22,8 @@ const gameStarter = (playerName) => {
   gameData = setData(playerName);
   [player, computer] = [gameData.player1, gameData.computer];
   displayNames([player, computer]);
+  placementMenu(gameData);
   gameScreen(gameData);
-  gameData.enemyBoard.setShip(gameData.ship3, [7, 0]);
 };
 
 const initializeGame = () => {
