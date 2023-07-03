@@ -150,7 +150,6 @@ h1 {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: hidden; /* Enable scroll if needed */
 }
 
 form {
@@ -169,22 +168,6 @@ form {
 }
 
 .modal-content {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  justify-items: center;
-  border: 1px solid red;
-  margin: 6% auto; /* 15% from the top and centered */
-  min-width: 430px; /* Could be more or less, depending on screen size */
-  max-width: 70vw;
-  min-height: 300px;
-  max-height: 75vh;
-}
-
-.place-title {
-  grid-area: 1/1/2/3;
-  justify-items: center;
-  text-align: center;
-  font-size: 3rem;
 }
 
 .ships-container {
@@ -195,18 +178,8 @@ form {
   justify-content: center;
   align-content: center;
   row-gap: 25px;
-  outline: 2px solid black;
+  outline: 2px solid yellowgreen;
   width: 300px;
-}
-
-.modal-content .cells {
-  height: 40px;
-}
-
-.modal-content .rows {
-  display: flex;
-  flex-direction: row;
-  width: 400px;
 }
 
 .ship {
@@ -215,16 +188,8 @@ form {
   margin-left: 40px;
 }
 
-.ship-cells {
-  width: 40px;
-  height: 40px;
-  background-color: rgb(255, 111, 58);
-  position: relative;
-  pointer-events: none;
-}
-
 .ship-cells:not(:last-child):not(.ship-on-grid *) {
-  border-right: 1px solid rgb(220, 62, 5);
+  border-right: 1px solid rgb(170, 22, 170);
 }
 
 .ship-selector {
@@ -237,7 +202,8 @@ form {
 }
 
 .selected {
-  outline: 3px solid black;
+  z-index: 20;
+  outline: 3px solid #00c6f8;
 }
 
 .ship-on-grid {
