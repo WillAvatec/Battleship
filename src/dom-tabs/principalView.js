@@ -1,6 +1,6 @@
 import { domHelper } from "./assistance/domHelper.js";
 import board from "./assistance/createBoard.js";
-import Icon from "../assets/images/github-logo.svg";
+import Icon from "../../dist/github-logo.svg";
 
 // Global Variables
 const body = document.querySelector("body");
