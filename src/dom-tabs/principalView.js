@@ -6,7 +6,6 @@ import Icon from "../assets/images/github-logo.svg";
 const body = document.querySelector("body");
 const playerBoard = document.querySelector("#player-board");
 const aiBoard = document.querySelector("#computer-board");
-const computerSide = document.querySelector(".computer-side");
 
 // ---- BOARDS -------X
 
@@ -14,7 +13,7 @@ function createBoards(boardSize, playerRef, PCRef) {
   board(boardSize, playerRef);
   board(boardSize, PCRef);
   const disable = document.createElement("div");
-  computerSide.appendChild(disable);
+  aiBoard.appendChild(disable);
   disable.classList.add("disable");
 }
 
@@ -54,15 +53,10 @@ const clickCellHandler = (data) => {
 
   function writeOnCell(cell, value) {
     if (value === "☒") {
-      cell.style.backgroundColor = "#fecaca";
-      cell.style.color = "#ef4444";
+      cell.style.backgroundColor = "#ed4c86";
     } else {
       cell.style.backgroundColor = "#9292f7";
-      cell.style.color = "#2eafe";
-      cell.style.fontSize = "2rem";
     }
-
-    cell.appendChild(document.createTextNode(value));
   }
 
   //	Console.log(data.enemyBoard.AreAllSunked());
