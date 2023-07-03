@@ -1,6 +1,9 @@
 function createMarker(text) {
   const marker = document.createElement("div");
-  marker.setAttribute("class", "marker -left-5 text-white absolute flex");
+  marker.setAttribute(
+    "class",
+    "marker -left-5 text-white absolute flex text-sm"
+  );
   marker.textContent = text;
   return marker;
 }
@@ -30,6 +33,12 @@ export default function renderBoard(size, parent) {
     for (let j = 0; j < size; j += 1) {
       const cell = createCell(j);
       row.appendChild(cell);
+      if (i === size - 1) {
+        const bottomMarker = createMarker(j);
+        bottomMarker.classList.add("-bottom-6");
+        bottomMarker.classList.remove("-left-5");
+        cell.appendChild(bottomMarker);
+      }
     }
 
     parent.appendChild(row);
