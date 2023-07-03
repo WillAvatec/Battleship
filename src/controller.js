@@ -1,5 +1,6 @@
 import startingScreen from "./dom-tabs/StartingScreen";
 import gameScreen from "./dom-tabs/principalView";
+import placementMenu from "./dom-tabs/placementMenu";
 import setData from "./data.js";
 import "./assets/css/styles.css";
 
