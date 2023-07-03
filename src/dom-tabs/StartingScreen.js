@@ -32,7 +32,7 @@ const form = domHelper(
   "form",
   {
     class:
-      "animate-fade-in p-2 mx-auto my-auto sm:w-72 justify-items-center rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white max-w-screen-sm",
+      "animate-fade-in p-5 w-11/12 mx-auto my-auto justify-items-center rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white max-w-screen-sm",
   },
   [welcomeDiv, inputName, playButton]
 );
