@@ -1,13 +1,13 @@
 function createMarker(text) {
   const marker = document.createElement("div");
-  marker.className = "marker";
+  marker.setAttribute("class", "marker -left-5 text-white absolute flex");
   marker.textContent = text;
   return marker;
 }
 
 function createRow(rowNumber) {
   const row = document.createElement("div");
-  row.setAttribute("class", "rows w-96");
+  row.setAttribute("class", "rows w-full flex flex-1");
   row.dataset.row = rowNumber;
   return row;
 }
@@ -16,7 +16,7 @@ function createCell(columnNumber) {
   const cell = document.createElement("div");
   cell.setAttribute(
     "class",
-    "cells lg:h-5 inline-flex text-xl border border-opacity-75 border-pink-600 h-10"
+    "cells inline-flex text-xl border border-opacity-75 border-pink-600"
   );
   cell.dataset.column = columnNumber;
   return cell;

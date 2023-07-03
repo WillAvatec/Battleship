@@ -82,7 +82,7 @@ body {
   border-radius: 1000% 1000% 0 0;
   position: fixed;
   width: 200%;
-  height: 13em;
+  height: 20vh;
   animation: wave 10s -3s linear infinite;
   transform: translate3d(0, 0, 0);
   opacity: 0.8;
@@ -123,64 +123,17 @@ footer img:hover {
 h1 {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 5rem;
-  font-size: 3rem;
-}
-
-.wrapper {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.boards {
-  display: flex;
-  flex-direction: row;
-  gap: 150px;
-}
-
-.player-board,
-.computer-board {
-  display: flex;
-}
-
-.player-side,
-.computer-side {
-  padding: 10px;
-  position: relative;
 }
 
 .disable {
-  background-color: rgba(241, 237, 237, 0.7);
+  background-color: rgba(74, 57, 77, 0.7);
   display: none;
 }
 
 .show {
   display: flex;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 520px;
-  height: 520px;
-}
-
-.rows {
-  display: flex;
-  flex-direction: row;
-}
-
-.marker {
-  position: absolute;
-  left: -8px;
-  color: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  font-size: x-large;
-  font-weight: 600;
+  inset: 0;
 }
 
 .cells {
@@ -188,8 +141,6 @@ h1 {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
-  font-size: 3rem;
 }
 
 .modal {
@@ -211,9 +162,8 @@ form {
   min-height: 200px;
 }
 
-#computer-board .cells:hover:empty {
+#computer-board .cells:hover {
   z-index: 3;
-  background-color: #dcfce7;
-  outline: 4px solid #4ade80;
+  outline: 2px solid #dec4ec;
   cursor: pointer;
 }

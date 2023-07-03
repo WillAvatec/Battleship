@@ -13,7 +13,10 @@ const inputName = domHelper(
 );
 const playButton = domHelper(
   "button",
-  { class: "playBtn text-white bg-purple-800 p-3 py-1.5 rounded-xl" },
+  {
+    class:
+      "playBtn text-white bg-purple-800 p-3 py-1.5 rounded-xl hover:scale-105 hover:bg-purple-900 hover:shadow-xl transition-all",
+  },
   ["Start Game"]
 );
 
