@@ -21,17 +21,23 @@ function createBoards(boardSize, playerRef, PCRef) {
 
 function footer(body) {
   const p = domHelper("p", {}, ["Developed by avatec2312."]);
-  const a = domHelper("a", {
-    href: "https://github.com/WillAvatec/battleship",
-  });
-  const img = domHelper("img", { src: Icon }, [a]);
+  const img = domHelper("img", { src: Icon }, []);
+  const a = domHelper(
+    "a",
+    {
+      href: "https://github.com/WillAvatec/battleship-2",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+    [img]
+  );
+
   const footer = domHelper(
     "footer",
     {
-      class:
-        "text-white divide-y-2 py-3 bg-gradient-to-r from-pink-900 to-pink-700",
+      class: "text-white py-3 bg-gradient-to-r from-pink-900 to-pink-700",
     },
-    [p, img]
+    [p, a]
   );
   body.appendChild(footer);
 }
@@ -55,7 +61,7 @@ const clickCellHandler = (data) => {
     if (value === "☒") {
       cell.style.backgroundColor = "#ed4c86";
     } else {
-      cell.style.backgroundColor = "#9292f7";
+      cell.style.backgroundColor = "#c8c8e5";
     }
   }
 
