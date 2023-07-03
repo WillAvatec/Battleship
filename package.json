@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
+    "deploy": "git subtree push --prefix dist origin gh-pages",
     "guard": "webpack --watch",
     "test": "jest --watch --verbose",
     "linter": "init @eslint/config",
