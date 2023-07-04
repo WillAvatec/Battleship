@@ -1,4 +1,4 @@
-import { domHelper, clearChildNodes } from "./assistance/domHelper.js";
+import { domHelper } from "./assistance/domHelper.js";
 
 const inputName = domHelper(
   "input",
@@ -56,10 +56,15 @@ const body = document.querySelector("body");
 
 export default function (callback) {
   form.addEventListener("submit", (e) => {
-    console.log("submitted");
     e.preventDefault();
+    /* Form.classList.remove('animate__zoomIn');
+		form.classList.add('animate__fadeOutDown');
+		form.addEventListener('animationend', () => {
+			modalDiv.remove();
+			callback(inputName.value);
+		}); */
+    modalDiv.remove();
     callback(inputName.value);
-    clearChildNodes(modalDiv);
   });
   body.appendChild(modalDiv);
 }

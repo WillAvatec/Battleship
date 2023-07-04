@@ -10,7 +10,7 @@ export default function (boardSize = 10) {
 		return board;
 	}
 
-	function isAvailable(coord, s, b) {
+	function isAvailable(coord, s, b = board) {
 		const [x, y] = coord;
 		const vert = s.isVertical;
 		const max = b.length;
@@ -25,7 +25,7 @@ export default function (boardSize = 10) {
 				}
 
 				if (!vert && !isOccupied) {
-					isOccupied = b[x + i][y] === 1;
+					isOccupied = b[x]?.[y] === 1;
 				}
 			}
 		}
@@ -38,7 +38,7 @@ export default function (boardSize = 10) {
 		const size = ship.getSize();
 		const {isVertical} = ship;
 		if (!isAvailable(coord, ship, board)) {
-			return 'invalid coordinates';
+			return 'invalid';
 		}
 
 		if (!isVertical && size >= 1) {
@@ -112,6 +112,7 @@ export default function (boardSize = 10) {
 	}
 
 	return {
+		isAvailable,
 		getBoard,
 		setShip,
 		receiveAttack,

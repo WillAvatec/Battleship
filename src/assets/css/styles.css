@@ -150,7 +150,6 @@ h1 {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: hidden; /* Enable scroll if needed */
 }
 
 form {
@@ -166,4 +165,69 @@ form {
   z-index: 3;
   outline: 2px solid #dec4ec;
   cursor: pointer;
+}
+
+.modal-content {
+}
+
+.ships-container {
+  grid-area: 2/2/3/3;
+  display: grid;
+  grid-auto-rows: 40px;
+  grid-auto-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+  row-gap: 25px;
+  outline: 2px solid yellowgreen;
+  width: 300px;
+}
+
+.ship {
+  display: inline-grid;
+  grid-template-columns: rpeat(auto-fit, 40px);
+  margin-left: 40px;
+}
+
+.ship-cells:not(:last-child):not(.ship-on-grid *) {
+  border-right: 1px solid rgb(170, 22, 170);
+}
+
+.ship-selector {
+  display: inline-flex;
+  position: relative;
+  border-radius: 2px;
+  z-index: 3;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.selected {
+  z-index: 20;
+  outline: 3px solid #00c6f8;
+}
+
+.ship-on-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+[data-vertical="true"] .ship-cells:not(:last-child) {
+  border-bottom: 1px solid rgb(220, 62, 5);
+}
+
+[data-vertical="false"] {
+  display: inline-flex;
+}
+
+[data-vertical="false"] .ship-cells:not(:last-child) {
+  border-right: 1px solid rgb(220, 62, 5);
+}
+
+#playBtn {
+  grid-area: 3/1/4/3;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+
 }

@@ -19,7 +19,7 @@ function createCell(columnNumber) {
   const cell = document.createElement("div");
   cell.setAttribute(
     "class",
-    "cells inline-flex text-xl border border-opacity-75 border-pink-600"
+    "cells relative inline-flex text-xl border border-opacity-75 border-pink-600"
   );
   cell.dataset.column = columnNumber;
   return cell;
