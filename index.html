@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module" src="./main.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BattleShip : Let's sunk some boats</title>
+  </head>
+  <body>
+    <div class="wave -z-10"></div>
+    <div class="wave -z-10"></div>
+    <div class="wave -z-10"></div>
+    <h1 class="text-white text-4xl py-4 font-black">BATTLESHIP</h1>
+    <div class="wrapper mx-auto flex justify-between items-center flex-1">
+      <section class="boards flex flex-col gap-5 lg:gap-20 md:flex-row">
+        <div class="player-side p-5 relative">
+          <div class="bg-pink-600 -z-10 absolute inset-0 blur"></div>
+          <div
+            class="player-name overflow-hidden whitespace-nowrap text-violet-50 max-w-sm text-ellipsis drop-shadow-2xl inline-block text-xl absolute -top-2"
+          ></div>
+          <div
+            id="player-board"
+            class="border-pink-600 relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-8 bg-slate-900 flex flex-col"
+          ></div>
+        </div>
+        <div class="computer-side p-5 relative">
+          <div
+            class="computer-name overflow-hidden whitespace-nowrap text-violet-50 max-w-sm text-ellipsis drop-shadow-2xl inline-block text-xl absolute -top-2"
+          ></div>
+          <div class="bg-pink-600 -z-10 absolute inset-0 blur"></div>
+          <div
+            id="computer-board"
+            class="border-pink-600 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-8 flex relative bg-slate-900 flex-col"
+          ></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
